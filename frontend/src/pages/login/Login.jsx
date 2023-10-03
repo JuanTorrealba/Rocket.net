@@ -28,7 +28,7 @@ function Login() {
     };
 
     axios
-      .post("http://localhost:3000/api/login", data)
+      .post("https://rocketnet-0aga.onrender.com/api/login", data)
       .then((response) => {
         if (response.data.jwt) {
           localStorage.setItem("jwt", response.data.jwt);

@@ -34,7 +34,7 @@ function GestionCobertura() {
   const [nombresPoligonos, setNombresPoligonos] = useState([]);
 
   const obtenerPoligonos = () => {
-    axios.get('http://localhost:3000/api/poligonos', config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/poligonos', config)
       .then((response) => {
         const poligonosConId = response.data.map((poligono) => ({
           id: poligono.id_poligono,
@@ -51,7 +51,7 @@ function GestionCobertura() {
 
   const obtenerNombresPoligonos = () => {
     axios
-      .get('http://localhost:3000/api/poligonos', config)
+      .get('https://rocketnet-0aga.onrender.com/api/poligonos', config)
       .then((response) => {
         const nombresPoligonos = response.data.map((poligono) => poligono.nombre_poligono);
         setNombresPoligonos(nombresPoligonos);
@@ -90,7 +90,7 @@ function GestionCobertura() {
           id_usuario: idUsuario
         };
 
-        axios.post('http://localhost:3000/api/poligonos', nuevoPoligono, config)
+        axios.post('https://rocketnet-0aga.onrender.com/api/poligonos', nuevoPoligono, config)
           .then((response) => {
             if (response.status === 200) {
               obtenerPoligonos();
@@ -114,7 +114,7 @@ function GestionCobertura() {
   };
 
   const handleDeleteRow1 = (idPoligono) => {
-    axios.delete(`http://localhost:3000/api/poligonos/${idPoligono}`, config)
+    axios.delete(`https://rocketnet-0aga.onrender.com/api/poligonos/${idPoligono}`, config)
       .then((response) => {
         if (response.status === 200) {
           console.log('Poligono eliminado correctamente');
@@ -145,7 +145,7 @@ function GestionCobertura() {
 
         };
 
-        axios.put(`http://localhost:3000/api/poligonos/${idPoligonoAModificar}`, modificacionesPoligono, config)
+        axios.put(`https://rocketnet-0aga.onrender.com/api/poligonos/${idPoligonoAModificar}`, modificacionesPoligono, config)
           .then((response) => {
             if (response.status === 200) {
               obtenerPoligonos();
@@ -179,7 +179,7 @@ function GestionCobertura() {
   })
 
   const obtenerPuntos = () => {
-    axios.get('http://localhost:3000/api/puntos', config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/puntos', config)
       .then((response) => {
         const puntos = response.data.map((punto) => ({
           id: punto.id_punto,
@@ -226,7 +226,7 @@ function GestionCobertura() {
             id_poligono: idPoligonoSeleccionado,
           };
 
-          axios.post('http://localhost:3000/api/puntos', nuevoPunto, config)
+          axios.post('https://rocketnet-0aga.onrender.com/api/puntos', nuevoPunto, config)
             .then((response) => {
               if (response.status === 200) {
                 const puntoCreado = response.data;
@@ -267,7 +267,7 @@ function GestionCobertura() {
       cancelButtonText: 'No',
     }).then(response => {
       if (response.isConfirmed) {
-        axios.delete(`http://localhost:3000/api/puntos/${idPunto}`, config)
+        axios.delete(`https://rocketnet-0aga.onrender.com/api/puntos/${idPunto}`, config)
           .then((response) => {
             if (response.status === 200) {
               const nuevosPuntos = puntos.filter((punto) => punto.id !== idPunto);
@@ -304,7 +304,7 @@ function GestionCobertura() {
         if (!isNaN(latitud) && !isNaN(longitud)) {
 
           axios
-            .put(`http://localhost:3000/api/puntos/${editedPunto.id}`, {
+            .put(`https://rocketnet-0aga.onrender.com/api/puntos/${editedPunto.id}`, {
               latitud: latitud,
               longitud: longitud,
               id_poligono: editedPunto.poligono,

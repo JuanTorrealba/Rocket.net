@@ -85,7 +85,7 @@ const estadoColor = (conexion) => {
   useEffect(() => {
     async function fetchData() {
   try {
-    const response = await axios.get("http://localhost:3000/api/sedes",config);
+    const response = await axios.get("https://rocketnet-0aga.onrender.com/api/sedes",config);
 
     if (response.status === 200) {
       const data = response.data;

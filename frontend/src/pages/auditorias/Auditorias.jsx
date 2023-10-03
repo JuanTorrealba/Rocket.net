@@ -30,7 +30,7 @@ function Auditorias() {
                 localStorage.removeItem("jwt"); 
                 window.location.href = '/login';
             }
-            axios.get(`http://localhost:3000/api/auditoria/${idUsuario}`, config)
+            axios.get(`https://rocketnet-0aga.onrender.com/api/auditoria/${idUsuario}`, config)
                 .then((response) => {
                     const auditorias = response.data.map((auditoria) => ({
                         id: auditoria.id_auditoria,

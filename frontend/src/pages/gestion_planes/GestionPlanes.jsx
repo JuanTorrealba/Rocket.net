@@ -37,7 +37,7 @@ function GestionPlanes() {
   }, []);
 
   const obtenerPlanes = () => {
-    axios.get('http://localhost:3000/api/planes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/planes',config)
       .then((response) => {
         const planesConId = response.data.map((plan) => ({
           id: plan.id_plan,
@@ -56,7 +56,7 @@ function GestionPlanes() {
   };
 
   const obtenerNombresPlanes = () => {
-    axios.get('http://localhost:3000/api/planes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/planes',config)
       .then((response) => {
   
         const nombresPlan = response.data.map((planes) => planes.nombre_plan);
@@ -78,7 +78,7 @@ function GestionPlanes() {
     }).then(response => {
       if (response.isConfirmed){
     nuevoPlan.estado_plan = nuevoPlan.estado;
-    axios.post('http://localhost:3000/api/planes', nuevoPlan,config)
+    axios.post('https://rocketnet-0aga.onrender.com/api/planes', nuevoPlan,config)
       .then(response => {
         if (response.status === 200) {
         const planCreado = response.data.plan;
@@ -207,7 +207,7 @@ function GestionPlanes() {
               requestBody[key] = editedPlans[key];
             }
         }
-            axios.put(`http://localhost:3000/api/planes/${editedPlans.id}`, requestBody,config)
+            axios.put(`https://rocketnet-0aga.onrender.com/api/planes/${editedPlans.id}`, requestBody,config)
               .then((response) => {
                 if (response.status === 200) {
                   obtenerPlanes(); 
@@ -235,7 +235,7 @@ function GestionPlanes() {
   } 
 
   const handleDeletePlan = (id_plan) => {
-    axios.patch(`http://localhost:3000/api/planes/${id_plan}`,config)
+    axios.patch(`https://rocketnet-0aga.onrender.com/api/planes/${id_plan}`,config)
       .then((response) => {
         if (response.status === 200) {
           obtenerPlanes(); 

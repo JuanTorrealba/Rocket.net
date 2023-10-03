@@ -40,7 +40,7 @@ function GestionClientes() {
     buttonsStyling: false
   })
   const obtenerPlanesOptions = () => {
-    axios.get('http://localhost:3000/api/planes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/planes',config)
       .then(response => {
         if (response.status === 200) {
           const opciones = response.data.map(opcion => ({
@@ -72,7 +72,7 @@ function GestionClientes() {
         nuevoCliente.id_plan = nuevoCliente.plan;
         nuevoCliente.id_usuario = '1';
         nuevoCliente.estado_usuario = nuevoCliente.estadousuario;
-        axios.post('http://localhost:3000/api/clientes', nuevoCliente,config)
+        axios.post('https://rocketnet-0aga.onrender.com/api/clientes', nuevoCliente,config)
           .then(response => {
             console.log('Respuesta a la solicitud:', response);
             if (response.status === 200) {
@@ -166,7 +166,7 @@ function GestionClientes() {
   const [showModal, setShowModal] = useState(false);   //estado para el modal de editar
 
   const obtenerClientes = () => {
-    axios.get('http://localhost:3000/api/clientes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/clientes',config)
       .then(response => {
         const clientesConId = response.data.map(cliente => ({
           id: cliente.id_cliente,
@@ -226,7 +226,7 @@ function GestionClientes() {
           }
         }
         axios
-          .put(`http://localhost:3000/api/clientes/${editedClient.id}`, requestBody, config)
+          .put(`https://rocketnet-0aga.onrender.com/api/clientes/${editedClient.id}`, requestBody, config)
           .then((response) => {
             if (response.status === 200) {
               obtenerClientes();
@@ -248,7 +248,7 @@ function GestionClientes() {
   };
 
   const handleDeleteClick = (idCliente) => {
-    axios.patch(`http://localhost:3000/api/clientes/${idCliente}`,config)
+    axios.patch(`https://rocketnet-0aga.onrender.com/api/clientes/${idCliente}`,config)
       .then(response => {
         if (response.status === 200) {
           obtenerClientes();

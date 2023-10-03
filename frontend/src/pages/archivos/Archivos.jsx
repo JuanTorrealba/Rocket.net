@@ -65,7 +65,7 @@ function Archivos() {
     ]
 
     const obtenerDocumentos = () => {
-        axios.get('http://localhost:3000/api/documentos')
+        axios.get('https://rocketnet-0aga.onrender.com/api/documentos')
           .then(response => {
             const documentosConId = response.data.map(documentos => ({
               id: documentos.id_documento,
@@ -148,7 +148,7 @@ const handleEditArchivo = (editedArchivo) => {
         }
       }
 
-      axios.patch(`http://localhost:3000/api/documentos/edit/${editedArchivo.id}`, requestBody)
+      axios.patch(`https://rocketnet-0aga.onrender.com/api/documentos/edit/${editedArchivo.id}`, requestBody)
         .then((response) => {
           if (response.status === 200) {
             obtenerDocumentos();
@@ -171,7 +171,7 @@ const handleChange = (event) => {
 }; 
 
     const handleDeleteClick = (id) => {
-        axios.patch(`http://localhost:3000/api/documentos/${id}`)
+        axios.patch(`https://rocketnet-0aga.onrender.com/api/documentos/${id}`)
       .then(response => {
         if (response.status === 200) {
           obtenerDocumentos();

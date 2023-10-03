@@ -49,7 +49,7 @@ function Reportes() {
 
 
   const rellenarFilasPlanes = () => {
-    axios.get('http://localhost:3000/api/planes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/planes',config)
          .then((response) => {
 
           const planes = response.data.map((plan) => ({
@@ -68,7 +68,7 @@ function Reportes() {
   };
 
   const rellenarFilasClientes = () => {
-    axios.get('http://localhost:3000/api/clientes',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/clientes',config)
          .then((response) => {
           const clientes = response.data.map((cliente) => (
             {
@@ -89,7 +89,7 @@ function Reportes() {
   };
 
   const rellenarFilasUsuarios = () => {
-    axios.get('http://localhost:3000/api/usuarios',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/usuarios',config)
     .then(response => {
       const usuarios = response.data.map(usuario => ({
         id: usuario.id_usuario,
@@ -104,7 +104,7 @@ function Reportes() {
     }).then(async (usuarios) => {
       usuarios.forEach(async (usuario) => {
         const sedeDepar = await 
-        axios.get(`http://localhost:3000/api/sedesdepartamentos/${usuario.sedepartamento}`)
+        axios.get(`https://rocketnet-0aga.onrender.com/api/sedesdepartamentos/${usuario.sedepartamento}`)
         usuario.sedepartamento = sedeDepar.data.sede_departamento
       });
       setFilasUsuarios(usuarios);

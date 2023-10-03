@@ -44,7 +44,7 @@ function GestionUsuarios() {
   })
 
   const obtenerSedepartamentoOptions = () => {
-    axios.get('http://localhost:3000/api/sedesdepartamentos',config)
+    axios.get('https://rocketnet-0aga.onrender.com/api/sedesdepartamentos',config)
       .then(response => {
         if (response.status === 200) {
           const opciones = response.data.map(opcion => ({
@@ -180,7 +180,7 @@ function GestionUsuarios() {
 
   // Función para obtener los usuarios desde la API
  const obtenerUsuarios = () => {
-  axios.get('http://localhost:3000/api/usuarios',config)
+  axios.get('https://rocketnet-0aga.onrender.com/api/usuarios',config)
     .then(response => {
       const usuariosConId = response.data.map(usuario => ({
         id: usuario.id_usuario,
@@ -242,7 +242,7 @@ function GestionUsuarios() {
       }
     }
     axios
-      .patch(`http://localhost:3000/api/usuarios/edit/${editedUser.id}`, requestBody,config)
+      .patch(`https://rocketnet-0aga.onrender.com/api/usuarios/edit/${editedUser.id}`, requestBody,config)
       .then((response) => {
         if (response.status === 200) {
           obtenerUsuarios();
@@ -279,7 +279,7 @@ function GestionUsuarios() {
 
   const handleDeleteClick = (idUsuario) => {
     // Realiza la solicitud PATCH para eliminar el usuario
-    axios.patch(`http://localhost:3000/api/usuarios/${idUsuario}`,config)
+    axios.patch(`https://rocketnet-0aga.onrender.com/api/usuarios/${idUsuario}`,config)
       .then(response => {
         if (response.status === 200) {
           obtenerUsuarios();
@@ -351,7 +351,7 @@ const [camposEditados, setCamposEditados] = useState({});  // aca estaba definie
       formData.append('id_tipousuario', nuevoUsuario.tipousuario);
       formData.append('fileUsuario', nuevaImagen);
     
-    axios.post('http://localhost:3000/api/usuarios', formData,config)
+    axios.post('https://rocketnet-0aga.onrender.com/api/usuarios', formData,config)
     .then(response => {
       console.log('Respuesta de la solicitud:', response);
       if (response.status === 200) {

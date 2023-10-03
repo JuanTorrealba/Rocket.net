@@ -32,7 +32,7 @@ function Recuperar_Password() {
         text: 'Ingresa un usuario',
       });
     } else {
-      axios.get(`http://localhost:3000/api/recuperar-clave/?nombreUsuario=${usuario}`)
+      axios.get(`https://rocketnet-0aga.onrender.com/api/recuperar-clave/?nombreUsuario=${usuario}`)
         .then((response) => {
           const preguntaObtenida = response.data.pregunta;
           setPregunta(preguntaObtenida);
@@ -61,7 +61,7 @@ function Recuperar_Password() {
       }).then (response =>{
     if (response.isConfirmed){
 
-      axios.put('http://localhost:3000/api/recuperar-clave', {
+      axios.put('https://rocketnet-0aga.onrender.com/api/recuperar-clave', {
         usuario: usuario,
         nueva_clave: contraseña,
         respuesta: respuesta,
