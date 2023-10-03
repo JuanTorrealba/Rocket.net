@@ -48,7 +48,7 @@ function Mapa({ posicionActual }) {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/poligonospuntos')
+    axios.get('https://rocketnet-0aga.onrender.com/api/poligonospuntos')
       .then(res => {
         setData(res.data);
       })
