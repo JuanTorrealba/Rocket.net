@@ -14,10 +14,10 @@ function GestionCobertura() {
 
   const token = localStorage.getItem("jwt");
 
-  if (!token) {
+ /* if (!token) {
     window.location.href = '/login';
     return null;
-}
+}*/
 
   const payload = jwtDecode(token);
   const idUsuario = payload.idUser;
