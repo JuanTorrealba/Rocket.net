@@ -14,10 +14,10 @@ function GestionCobertura() {
 
   const token = localStorage.getItem("jwt");
 
- /* if (!token) {
+  if (!token) {
     window.location.href = '/login';
     return null;
-}*/
+}
 
   const payload = jwtDecode(token);
   const idUsuario = payload.idUser;
@@ -70,7 +70,7 @@ function GestionCobertura() {
     if (poligono.trim() === '') {
       MySwal.fire({
         title: <strong>Error</strong>,
-        html: <i>Por favor, ingrese un nombre para el poligono</i>,
+        html: <i>Por favol, ingrese un nombre para el poligono</i>,
         icon: 'error',
       });
       return;
