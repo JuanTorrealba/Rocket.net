@@ -68,7 +68,7 @@ async function checkConnection(ip) {
       return 'Sin conexión';
     }
   } catch (error) {
-    return 'Sin conexión';
+    return 'Erro, Sin conexión';
   }
 }
 

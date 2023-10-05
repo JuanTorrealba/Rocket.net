@@ -70,7 +70,7 @@ function GestionCobertura() {
     if (poligono.trim() === '') {
       MySwal.fire({
         title: <strong>Error</strong>,
-        html: <i>Por favol, ingrese un nombre para el poligono</i>,
+        html: <i>Por favor, ingrese un nombre para el poligono</i>,
         icon: 'error',
       });
       return;
